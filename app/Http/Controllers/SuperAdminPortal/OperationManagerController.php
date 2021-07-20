@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\AdminPortal;
+namespace App\Http\Controllers\SuperAdminPortal;
 
 use App\Http\Controllers\Controller;
 

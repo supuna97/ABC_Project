@@ -21,10 +21,10 @@ Route::get('/', function () {
 
 // Super Admin Routes
 
-Route::get('superadmin/index', 'App\Http\Controllers\AdminPortal\SuperAdminController@index')->name('index');
+Route::get('superadmin/index', 'App\Http\Controllers\SuperAdminPortal\SuperAdminController@index')->name('index');
 
-Route::get('superadmin/superadmin-admin', 'App\Http\Controllers\AdminPortal\AdminController@index')->name('index');
+Route::get('superadmin/superadmin-admin', 'App\Http\Controllers\SuperAdminPortal\AdminController@index')->name('index');
 
-Route::get('superadmin/superadmin-salesmanager', 'App\Http\Controllers\AdminPortal\SalesManagerController@index')->name('index');
+Route::get('superadmin/superadmin-salesmanager', 'App\Http\Controllers\SuperAdminPortal\SalesManagerController@index')->name('index');
 
-Route::get('superadmin/superadmin-operationmanager', 'App\Http\Controllers\AdminPortal\OperationManagerController@index')->name('index');
+Route::get('superadmin/superadmin-operationmanager', 'App\Http\Controllers\SuperAdminPortal\OperationManagerController@index')->name('index');
