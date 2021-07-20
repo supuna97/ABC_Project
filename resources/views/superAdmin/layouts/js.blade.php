@@ -18,6 +18,8 @@
 <script src="../dist/js/sidebarmenu.js"></script>
 <!--Custom JavaScript -->
 <script src="../dist/js/custom.min.js"></script>
+<!-- Validation -->
+<script src="../dist/js/form-validation.js"></script>
 <!--This page JavaScript -->
 <!--chartis chart-->
 <script src="../assets/admin/libs/chartist/dist/chartist.min.js"></script>

@@ -64,7 +64,14 @@ class OperationManagerController extends Controller
     //update data
     public function update_operationmanager(Request $request)
     {
-        $oms = OperationManager::find($request->get('om_id'));  
+        $oms = OperationManager::find($request->get('om_id')); 
+        
+        $request->validate([
+            'om_name' => 'required',
+            'om_email' => ['email','unique:App\Models\OperationManager,om_email'],
+            'om_password' =>'required|min:8'
+        ]);
+        
         $oms->om_name = $request->get('om_name');
         $oms->om_email = $request->get('om_email');
         $oms->om_password = Hash::make($request->input('om_password'));

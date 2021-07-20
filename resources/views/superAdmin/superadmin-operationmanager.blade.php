@@ -167,7 +167,7 @@
 
     </div>
 
-    <!--  News Category Update Modal-->
+    <!--  Operation Manager Update Modal-->
 
     <div class="col-md-4">
         <div class="card">
@@ -189,7 +189,7 @@
                                             <div class="card-header bg-info">
                                                 <h4 class="mb-0 text-white">Operation Manager Update Section</h4>
                                             </div>
-                                            <form action="{{url('superadmin/update-operationmanager')}}" method="POST">
+                                            <form action="{{url('superadmin/update-operationmanager')}}" class="needs-validation" novalidate method="POST">
                                             {{ csrf_field() }}
                                                 <hr>
                                                 <div class="form-body">
@@ -212,7 +212,9 @@
                                                                     <input type="text" id="om_name" name="om_name"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <div class="invalid-feedback">
+                                                                        Please enter a name
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12">
@@ -221,17 +223,22 @@
                                                                     <input type="email" id="om_email" name="om_email"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <div class="invalid-feedback">
+                                                                        Please enter a valid email Address
+                                                                    </div>
+                                                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                                                 </div>
                                                             </div>
                                                             
                                                             <div class="col-md-12">
                                                                 <div class="form-group has-danger">
-                                                                    <label class="control-label">Password</label>
+                                                                    <label class="control-label">New Password</label>
                                                                     <input type="password" id="om_password" name="om_password"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <div class="invalid-feedback">
+                                                                        Please enter a new password
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
@@ -241,7 +248,8 @@
                                                                     <input type="password" id="om_password1" name="om_password1"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <div class="invalid-feedback">
+                                                                        Please enter a confirm password
                                                                 </div>
                                                             </div>
 
@@ -275,7 +283,7 @@
     </div>
 
 
-    <!--    Save News Modal-->
+    <!--    Save Operation Manager Modal-->
     <div class="modal" id="long-modal-new" tabindex="-1" role="dialog" aria-labelledby="longmodal" aria-hidden="true"
          style="display: none;">
         <div class="modal-dialog">
@@ -291,7 +299,7 @@
                                 <div class="card-header bg-info">
                                     <h4 class="mb-0 text-white">Add Operation Managers</h4>
                                 </div>
-                                <form action="{{url('superadmin/save-operationmanager')}}" method="POST">
+                                <form action="{{url('superadmin/save-operationmanager')}}" class="needs-validation" novalidate method="POST">
 
                                 {{ csrf_field() }} 
                                     <hr>
@@ -304,7 +312,9 @@
                                                                     <input type="text" id="om_name" name="om_name"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <div class="invalid-feedback">
+                                                                        Please enter a name
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12">
@@ -313,7 +323,10 @@
                                                                     <input type="email" id="om_email" name="om_email"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <div class="invalid-feedback">
+                                                        Please enter a valid email address
+                                                        </div>
+                                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                                                 </div>
                                                             </div>
                                                             
@@ -323,7 +336,9 @@
                                                                     <input type="password" id="om_password" name="om_password"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <div class="invalid-feedback">
+                                                                                Please enter a password
+                                                                                </div>
                                                                 </div>
                                                             </div>
 
@@ -333,7 +348,9 @@
                                                                     <input type="password" id="om_password1" name="om_password1"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <div class="invalid-feedback">
+                                                                                Please enter a confirm password
+                                                                                </div>
                                                                 </div>
                                                             </div>
                                                             

@@ -63,7 +63,14 @@ class SalesManagerController extends Controller
     //update data
     public function update_salesmanager(Request $request)
     {
-        $sms = SalesManager::find($request->get('sm_id'));  
+        $sms = SalesManager::find($request->get('sm_id'));
+        
+        $request->validate([
+            'sm_name' => 'required',
+            'sm_email' => ['email','unique:App\Models\SalesManager,sm_email'],
+            'sm_password' =>'required|min:8'
+        ]);
+
         $sms->sm_name = $request->get('sm_name');
         $sms->sm_email = $request->get('sm_email');
         $sms->sm_password = Hash::make($request->input('sm_password'));

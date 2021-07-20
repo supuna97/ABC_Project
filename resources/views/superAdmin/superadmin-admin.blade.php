@@ -185,7 +185,7 @@
                                             <div class="card-header bg-info">
                                                 <h4 class="mb-0 text-white">Admin Update Section</h4>
                                             </div>
-                                            <form action="{{url('superadmin/update-admin')}}" method="POST">
+                                            <form action="{{url('superadmin/update-admin')}}" class="needs-validation" novalidate method="POST">
                                             {{ csrf_field() }}
                                                 <hr>
                                                 <div class="form-body">
@@ -201,14 +201,16 @@
                                                                 </div>
                                                             </div>
 
-                                                        
+                                                    
                                                             <div class="col-md-12">
                                                                 <div class="form-group has-danger">
                                                                     <label class="control-label">Name</label>
                                                                     <input type="text" id="a_name" name="a_name"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <div class="invalid-feedback">
+                                                                        Please enter a name
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12">
@@ -217,17 +219,22 @@
                                                                     <input type="email" id="a_email" name="a_email"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <div class="invalid-feedback">
+                                                                           Please enter a valid email address
+                                                                    </div>
+                                                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                                                 </div>
                                                             </div>
                                                             
                                                             <div class="col-md-12">
                                                                 <div class="form-group has-danger">
-                                                                    <label class="control-label">Password</label>
+                                                                    <label class="control-label">New Password</label>
                                                                     <input type="password" id="a_password" name="a_password"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <div class="invalid-feedback">
+                                                                        Please enter a new password
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
@@ -237,7 +244,10 @@
                                                                     <input type="password" id="a_password1" name="a_password1"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+
+                                                                   <div class="invalid-feedback">
+                                                                        Please enter a confirm password
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
@@ -287,7 +297,7 @@
                                 <div class="card-header bg-info">
                                     <h4 class="mb-0 text-white">Add New Admin</h4>
                                 </div>
-                                <form action="{{url('superadmin/save-admin')}}" method="POST">  
+                                <form action="{{url('superadmin/save-admin')}}" class="needs-validation" novalidate method="POST">  
                                 {{ csrf_field() }} 
                                     <hr>
                                     <div class="form-body">
@@ -299,7 +309,9 @@
                                                                     <input type="text" id="a_name" name="a_name"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                           <span class="text-danger" id="a_nameError"></span>
+                                                                           <div class="invalid-feedback">
+                                                                        Please enter a name
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12">
@@ -309,9 +321,11 @@
                                                                            class="form-control form-control-danger" 
                                                                            placeholder="" required>
 
-                                                                           <span class="text-danger" id="a_emailError"></span>
+                                                                           <div class="invalid-feedback">
+                                                        Please enter a valid email address
+                                                        </div>
+                                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
-                                                                    
                                                                 </div>
                                                             </div>
                                                             
@@ -321,8 +335,10 @@
                                                                     <input type="password" id="a_password" name="a_password"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                           <span class="text-danger" id="a_passwordError"></span>
-                                                                         
+                                                                           <div class="invalid-feedback">
+                                                                                Please enter a password
+                                                                                </div>
+                                                                                                                                            
                                                                 </div>
                                                             </div>
 
@@ -332,7 +348,9 @@
                                                                     <input type="password" id="a_password1" name="a_password1"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                           <span class="text-danger" id="a_password1Error"></span>
+                                                                           <div class="invalid-feedback">
+                                                                                Please enter a confirm password
+                                                                                </div>
                                                                 </div>
                                                             </div>
                                                             

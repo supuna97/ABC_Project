@@ -64,6 +64,13 @@ class AdminController extends Controller
     public function update_admin(Request $request)
     {
         $admins = Admin::find($request->get('a_id'));  
+
+        $request->validate([
+            'a_name' => 'required',
+            'a_email' => ['email','unique:App\Models\Admin,a_email'],
+            'a_password' =>'required|min:8'
+        ]);
+
         $admins->a_name = $request->get('a_name');
         $admins->a_email = $request->get('a_email');
         $admins->a_password = Hash::make($request->input('a_password'));
