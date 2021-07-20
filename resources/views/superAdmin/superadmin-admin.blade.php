@@ -80,7 +80,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-               
+                @include('flash-message')
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">ADMIN</h4>
@@ -94,7 +94,7 @@
                             <br>
 
                             <div class="table-responsive">
-                            
+                            @if(count($admins)>0)
                                 <table id="lang_opt" class="table table-striped table-bordered display"
                                       >
                                     <thead>
@@ -107,24 +107,24 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                   
+                                    @foreach ($admins AS $data)
                                     <tr>
-                                    <input type="hidden" class="ncdelete_val_id" value="">
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                    <input type="hidden" class="admindelete_val_id" value="{{$data->a_id}}">
+                                        <td>{{$data->a_id}}</td>
+                                        <td>{{$data->a_name}}</td>
+                                        <td>{{$data->a_email}}</td>
                                        
                                         <td>
-                                            <a class="btn waves-effect waves-light btn-outline-primary
+                                            <a onclick="admin_edit({{$data->a_id}});" class="btn waves-effect waves-light btn-outline-primary
                                     edit" data-toggle="modal" data-target="">Edit</a>
 
-                                    <button type="button" class="btn waves-effect waves-light btn-outline-primary ncdeletebtn
+                                    <button type="button" class="btn waves-effect waves-light btn-outline-primary admindeletebtn
                                     " data-toggle="" data-target="">Delete</button>
                                         </td>
 
                                     </tr>
                                   
-                                    
+                                    @endforeach
                                     </tbody>
                                     <tfoot>
                                     <tr>
@@ -136,9 +136,9 @@
                                     </tr>
                                     </tfoot>
                                 </table>
-                               
-                        <!-- <div style="text-align:center"><span style="text-align:right;color:red">No Records Found</span></div> -->
-                               
+                                @else
+                        <div style="text-align:center"><span style="text-align:right;color:red">No Records Found</span></div>
+                                @endif      
 
                             </div>
 
@@ -163,14 +163,14 @@
 
     </div>
 
-    <!--  News Category Update Modal-->
+    <!--  Admin Update Modal-->
 
     <div class="col-md-4">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Vertically Center</h4>
                 <!-- sample modal content -->
-                <div id="edit_newscategory" class="modal" tabindex="-1" role="dialog" aria-labelledby="vcenter"
+                <div id="edit_admin" class="modal" tabindex="-1" role="dialog" aria-labelledby="vcenter"
                      aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -185,8 +185,8 @@
                                             <div class="card-header bg-info">
                                                 <h4 class="mb-0 text-white">Admin Update Section</h4>
                                             </div>
-                                            <form action="" method="POST">
-                                            
+                                            <form action="{{url('superadmin/update-admin')}}" method="POST">
+                                            {{ csrf_field() }}
                                                 <hr>
                                                 <div class="form-body">
                                                     <div class="card-body">
@@ -271,7 +271,7 @@
     </div>
 
 
-    <!--    Save News Modal-->
+    <!--    Save Admin Modal-->
     <div class="modal" id="long-modal-new" tabindex="-1" role="dialog" aria-labelledby="longmodal" aria-hidden="true"
          style="display: none;">
         <div class="modal-dialog">
@@ -285,11 +285,10 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header bg-info">
-                                    <h4 class="mb-0 text-white">Add Admin</h4>
+                                    <h4 class="mb-0 text-white">Add New Admin</h4>
                                 </div>
-                                <form action="" method="POST">
-
-                                   
+                                <form action="{{url('superadmin/save-admin')}}" method="POST">  
+                                {{ csrf_field() }} 
                                     <hr>
                                     <div class="form-body">
                                         <div class="card-body">
@@ -300,16 +299,19 @@
                                                                     <input type="text" id="a_name" name="a_name"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <span class="text-danger" id="a_nameError"></span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <div class="form-group has-danger">
                                                                     <label class="control-label">Email</label>
                                                                     <input type="email" id="a_email" name="a_email"
-                                                                           class="form-control form-control-danger"
+                                                                           class="form-control form-control-danger" 
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+
+                                                                           <span class="text-danger" id="a_emailError"></span>
+
+                                                                    
                                                                 </div>
                                                             </div>
                                                             
@@ -319,7 +321,8 @@
                                                                     <input type="password" id="a_password" name="a_password"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <span class="text-danger" id="a_passwordError"></span>
+                                                                         
                                                                 </div>
                                                             </div>
 
@@ -329,7 +332,7 @@
                                                                     <input type="password" id="a_password1" name="a_password1"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                    <small class="form-control-feedback"></small>
+                                                                           <span class="text-danger" id="a_password1Error"></span>
                                                                 </div>
                                                             </div>
                                                             
@@ -337,7 +340,7 @@
 
                                                 <div class="form-actions">
                                                     <div class="card-body">
-                                                        <button type="submit" id="savebtn" class="btn btn-success"
+                                                        <button type="submit" id="savebtn"  class="btn btn-success"
                                                                 ><i class="fa fa-check"></i> Upload
                                                         </button>
 
@@ -376,10 +379,92 @@
     <!--Data Tables JS-->
     @include('superadmin.layouts.datatablejs')
 
-    <!--    update products script-->
-    
-
+  
     <!--This page plugins -->
+
+ 
+ <script>
+       
+//delete admin using ajax
+$(document).ready(function(){
+
+$.ajaxSetup({
+    
+    headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+     }
+});
+
+ $('.admindeletebtn').click(function (e){
+        e.preventDefault();
+
+        var delete_id = $(this).closest("tr").find('.admindelete_val_id').val();
+
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Data!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+        .then((willDelete) => {
+        if (willDelete) {
+
+            var data={
+
+                "_token" : $('input[name="csrf-token"]').val(),
+                "id" : delete_id
+            }
+
+            $.ajax({
+
+                type:"DELETE",
+                url:'/superadmin/delete-admin/'+delete_id,
+                data: data,
+                success: function(response){
+                   
+                    swal(response.status, {
+                        icon: "success",
+                      })
+
+                      .then((result) => {
+
+                        location.reload();
+                      });
+                }
+
+            });
+
+           
+        } 
+    });
+ });
+});
+
+// Update Admin Script
+function admin_edit(id){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        type: "GET",
+        url: "{{ url('superadmin/edit-admin') }}",
+        data: {
+            id: id
+        },
+        success: function (data) {
+            console.log(data);
+            $('#edit_admin').modal('show');
+            $('#a_id').val(data.a_id);
+            $('#a_name').val(data.a_name);
+            $('#a_email').val(data.a_email);
+        }
+    });
+}
+
+    </script>
 
 
 </body>
