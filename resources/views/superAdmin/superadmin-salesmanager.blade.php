@@ -80,7 +80,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                
+                @include('flash-message')
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Sales Manager</h4>
@@ -92,9 +92,9 @@
                                 </div>
                             </div>
                             <br>
-
+                           
                             <div class="table-responsive">
-                            
+                            @if(count($sms)>0)
                                 <table id="lang_opt" class="table table-striped table-bordered display"
                                       >
                                     <thead>
@@ -108,21 +108,24 @@
                                     </thead>
                                     <tbody>
                                    
+                                    @foreach ($sms AS $data)
                                     <tr>
-                                    <input type="hidden" class="ncdelete_val_id" value="">
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                    <input type="hidden" class="smdelete_val_id" value="{{$data->sm_id}}">
+                                        <td>{{$data->sm_id}}</td>
+                                        <td>{{$data->sm_name}}</td>
+                                        <td>{{$data->sm_email}}</td>
                                        
                                         <td>
-                                            <a class="btn waves-effect waves-light btn-outline-primary
+                                            <a onclick="sm_edit({{$data->sm_id}});" class="btn waves-effect waves-light btn-outline-primary
                                     edit" data-toggle="modal" data-target="">Edit</a>
 
-                                    <button type="button" class="btn waves-effect waves-light btn-outline-primary ncdeletebtn
+                                    <button type="button" class="btn waves-effect waves-light btn-outline-primary smdeletebtn
                                     " data-toggle="" data-target="">Delete</button>
                                         </td>
 
                                     </tr>
+                                  
+                                    @endforeach
                                   
                                     
                                     </tbody>
@@ -136,9 +139,10 @@
                                     </tr>
                                     </tfoot>
                                 </table>
-                               
-                        <!-- <div style="text-align:center"><span style="text-align:right;color:red">No Records Found</span></div> -->
-                               
+                                @else
+                        <div style="text-align:center"><span style="text-align:right;color:red">No Records Found</span></div>
+                                @endif             
+         
 
                             </div>
 
@@ -170,7 +174,7 @@
             <div class="card-body">
                 <h4 class="card-title">Vertically Center</h4>
                 <!-- sample modal content -->
-                <div id="edit_newscategory" class="modal" tabindex="-1" role="dialog" aria-labelledby="vcenter"
+                <div id="edit_sm" class="modal" tabindex="-1" role="dialog" aria-labelledby="vcenter"
                      aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -185,8 +189,8 @@
                                             <div class="card-header bg-info">
                                                 <h4 class="mb-0 text-white">Sales Manager Update Section</h4>
                                             </div>
-                                            <form action="" method="POST">
-                                            
+                                            <form action="{{url('superadmin/update-salesmanager')}}" method="POST">
+                                            {{ csrf_field() }}
                                                 <hr>
                                                 <div class="form-body">
                                                     <div class="card-body">
@@ -287,9 +291,9 @@
                                 <div class="card-header bg-info">
                                     <h4 class="mb-0 text-white">Add Sales Managers</h4>
                                 </div>
-                                <form action="" method="POST">
+                                <form action="{{url('superadmin/save-salesmanager')}}" method="POST">
 
-                                   
+                                {{ csrf_field() }} 
                                     <hr>
                                     <div class="form-body">
                                         <div class="card-body">
@@ -376,7 +380,88 @@
     <!--Data Tables JS-->
     @include('superadmin.layouts.datatablejs')
 
-    <!--    update products script-->
+    <script>
+       
+//delete admin using ajax
+$(document).ready(function(){
+
+$.ajaxSetup({
+    
+    headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+     }
+});
+
+ $('.smdeletebtn').click(function (e){
+        e.preventDefault();
+
+        var delete_id = $(this).closest("tr").find('.smdelete_val_id').val();
+
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Data!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+        .then((willDelete) => {
+        if (willDelete) {
+
+            var data={
+
+                "_token" : $('input[name="csrf-token"]').val(),
+                "id" : delete_id
+            }
+
+            $.ajax({
+
+                type:"DELETE",
+                url:'/superadmin/delete-salesmanager/'+delete_id,
+                data: data,
+                success: function(response){
+                   
+                    swal(response.status, {
+                        icon: "success",
+                      })
+
+                      .then((result) => {
+
+                        location.reload();
+                      });
+                }
+
+            });
+
+           
+        } 
+    });
+ });
+});
+
+// Update Admin Script
+function sm_edit(id){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        type: "GET",
+        url: "{{ url('superadmin/edit-salesmanager') }}",
+        data: {
+            id: id
+        },
+        success: function (data) {
+            console.log(data);
+            $('#edit_sm').modal('show');
+            $('#sm_id').val(data.sm_id);
+            $('#sm_name').val(data.sm_name);
+            $('#sm_email').val(data.sm_email);
+        }
+    });
+}
+
+    </script>
     
 
     <!--This page plugins -->
