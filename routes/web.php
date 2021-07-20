@@ -15,5 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 /* route details */
 Route::get('/', function () {
-    return view('superadmin.superadmin-salesmanager');
+    return view('superadmin.index');
 });
+
+
+// Super Admin Routes
+
+Route::get('superadmin/index', 'App\Http\Controllers\AdminPortal\SuperAdminController@index')->name('index');
+
+Route::get('superadmin/superadmin-admin', 'App\Http\Controllers\AdminPortal\AdminController@index')->name('index');
+
+Route::get('superadmin/superadmin-salesmanager', 'App\Http\Controllers\AdminPortal\SalesManagerController@index')->name('index');
+
+Route::get('superadmin/superadmin-operationmanager', 'App\Http\Controllers\AdminPortal\OperationManagerController@index')->name('index');
