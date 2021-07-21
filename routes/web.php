@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 /* route details */
 Route::get('/', function () {
-    return view('operationmanager.index');
+    return view('salesmanager.index');
 });
 
 
@@ -124,3 +124,12 @@ Route::delete('operationmanager/delete-item/{id}', 'App\Http\Controllers\Operati
 Route::get('operationmanager/edit-item', 'App\Http\Controllers\OperationManagerPortal\ItemController@edit_item'); // Edit item
 
 Route::post('operationmanager/update-item','App\Http\Controllers\OperationManagerPortal\ItemController@update_item'); //Update item
+
+
+// Sales Manager Routes
+
+Route::get('salesmanager/index', 'App\Http\Controllers\SalesManagerPortal\SalesManagerController@index')->name('index');
+
+Route::get('salesmanager/sm-dailysales-item', 'App\Http\Controllers\SalesManagerPortal\DailySalesItemController@index')->name('index');
+
+
