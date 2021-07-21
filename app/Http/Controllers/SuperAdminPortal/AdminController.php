@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
 
-use App\Models\Admin;
+use App\Models\User;
 
 class AdminController extends Controller
 {
     // page view route function
     public function index()
     {
-        $admins = Admin::get();
+        $admins = User::where('r_id','=',2)->get();
         return view("superadmin/superadmin-admin", compact('admins'));
     }
 
@@ -25,15 +25,16 @@ class AdminController extends Controller
 
         $request->validate([
             'a_name' => 'required',
-            'a_email' => ['email','unique:App\Models\Admin,a_email'],
+            'a_email' => ['email','unique:App\Models\User,email'],
             'a_password' =>'required|min:8'
         ]);
 
-        $admins = new Admin();
+        $admins = new User();
 
-        $admins->a_name = $request->input('a_name');
-        $admins->a_email = $request->input('a_email');
-        $admins->a_password = Hash::make($request->input('a_password'));
+        $admins->name = $request->input('a_name');
+        $admins->email = $request->input('a_email');
+        $admins->password = Hash::make($request->input('a_password'));
+        $admins->r_id = "2";
         
 
         $admins->save();
@@ -48,7 +49,7 @@ class AdminController extends Controller
      //delete data
      public function destroy($id)
      {
-         Admin::find($id)->delete();
+        User::find($id)->delete();
          return response()->json(['status'=>'Admin Delete Successfully']);
  
      }
@@ -56,24 +57,25 @@ class AdminController extends Controller
      //edit data
     public function edit_admin(Request $request)
     {
-        $admins = Admin::find($request->id);
+        $admins = User::find($request->id);
         return $admins;
     }
 
     //update data
     public function update_admin(Request $request)
     {
-        $admins = Admin::find($request->get('a_id'));  
+        $admins = User::find($request->get('a_id'));  
 
         $request->validate([
             'a_name' => 'required',
-            'a_email' => ['email','unique:App\Models\Admin,a_email'],
+            // 'a_email' => ['email','unique:App\Models\User,email'],
             'a_password' =>'required|min:8'
         ]);
 
-        $admins->a_name = $request->get('a_name');
-        $admins->a_email = $request->get('a_email');
-        $admins->a_password = Hash::make($request->input('a_password'));
+        $admins->name = $request->get('a_name');
+        $admins->email = $request->get('a_email');
+        $admins->password = Hash::make($request->input('a_password'));
+        $admins->r_id = "2";
         
         $admins->save();
 

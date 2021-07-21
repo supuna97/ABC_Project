@@ -118,7 +118,7 @@
                                         <td>{{$data->i_code}}</td>
                                         <td>{{$data->i_name}}</td>
                                         <td>{{$data->i_qty}}</td>
-                                        <td>{{$data->getProductCategory}}</td>
+                                        <td>{{$data->getProductCategory()}}</td>
                                         <td><img width="70" height="50" src="{{asset('uploads/items/'.$data->i_img)}}" alt="item imgs"></td>
                                          
                                         <td>

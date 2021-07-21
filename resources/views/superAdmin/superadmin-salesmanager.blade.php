@@ -110,13 +110,13 @@
                                    
                                     @foreach ($sms AS $data)
                                     <tr>
-                                    <input type="hidden" class="smdelete_val_id" value="{{$data->sm_id}}">
-                                        <td>{{$data->sm_id}}</td>
-                                        <td>{{$data->sm_name}}</td>
-                                        <td>{{$data->sm_email}}</td>
+                                    <input type="hidden" class="smdelete_val_id" value="{{$data->id}}">
+                                        <td>{{$data->id}}</td>
+                                        <td>{{$data->name}}</td>
+                                        <td>{{$data->email}}</td>
                                        
                                         <td>
-                                            <a onclick="sm_edit({{$data->sm_id}});" class="btn waves-effect waves-light btn-outline-primary
+                                            <a onclick="sm_edit({{$data->id}});" class="btn waves-effect waves-light btn-outline-primary
                                     edit" data-toggle="modal" data-target="">Edit</a>
 
                                     <button type="button" class="btn waves-effect waves-light btn-outline-primary smdeletebtn
@@ -458,7 +458,7 @@ $.ajaxSetup({
  });
 });
 
-// Update Admin Script
+// Update Sales Manager Script
 function sm_edit(id){
     $.ajaxSetup({
         headers: {
@@ -474,9 +474,9 @@ function sm_edit(id){
         success: function (data) {
             console.log(data);
             $('#edit_sm').modal('show');
-            $('#sm_id').val(data.sm_id);
-            $('#sm_name').val(data.sm_name);
-            $('#sm_email').val(data.sm_email);
+            $('#sm_id').val(data.id);
+            $('#sm_name').val(data.name);
+            $('#sm_email').val(data.email);
         }
     });
 }

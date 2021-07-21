@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
 
-use App\Models\SalesManager;
+use App\Models\User;
 
 class SalesManagerController extends Controller
 {
     // page view route function
     public function index()
     {
-        $sms = SalesManager::get();
+        $sms = User::where('r_id','=',4)->get();
         return view("superadmin/superadmin-salesmanager",compact('sms'));
     }
 
@@ -29,11 +29,12 @@ class SalesManagerController extends Controller
             'sm_password' =>'required|min:8'
         ]);
 
-        $sms = new SalesManager();
+        $sms = new User();
 
-        $sms->sm_name = $request->input('sm_name');
-        $sms->sm_email = $request->input('sm_email');
-        $sms->sm_password = Hash::make($request->input('sm_password'));
+        $sms->name = $request->input('sm_name');
+        $sms->email = $request->input('sm_email');
+        $sms->password = Hash::make($request->input('sm_password'));
+        $sms->r_id = "4";
         
 
         $sms->save();
@@ -48,7 +49,7 @@ class SalesManagerController extends Controller
      //delete data
      public function destroy($id)
      {
-        SalesManager::find($id)->delete();
+        User::find($id)->delete();
          return response()->json(['status'=>'Sales Manager Delete Successfully']);
  
      }
@@ -56,14 +57,14 @@ class SalesManagerController extends Controller
      //edit data
     public function edit_salesmanager(Request $request)
     {
-        $sms = SalesManager::find($request->id);
+        $sms = User::find($request->id);
         return $sms;
     }
 
     //update data
     public function update_salesmanager(Request $request)
     {
-        $sms = SalesManager::find($request->get('sm_id'));
+        $sms = User::find($request->get('sm_id'));
         
         $request->validate([
             'sm_name' => 'required',
@@ -71,9 +72,10 @@ class SalesManagerController extends Controller
             'sm_password' =>'required|min:8'
         ]);
 
-        $sms->sm_name = $request->get('sm_name');
-        $sms->sm_email = $request->get('sm_email');
-        $sms->sm_password = Hash::make($request->input('sm_password'));
+        $sms->name = $request->get('sm_name');
+        $sms->email = $request->get('sm_email');
+        $sms->password = Hash::make($request->input('sm_password'));
+        $sms->r_id = "4";
         
         $sms->save();
 

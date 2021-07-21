@@ -109,13 +109,13 @@
                                     <tbody>
                                     @foreach ($admins AS $data)
                                     <tr>
-                                    <input type="hidden" class="admindelete_val_id" value="{{$data->a_id}}">
-                                        <td>{{$data->a_id}}</td>
-                                        <td>{{$data->a_name}}</td>
-                                        <td>{{$data->a_email}}</td>
+                                    <input type="hidden" class="admindelete_val_id" value="{{$data->id}}">
+                                        <td>{{$data->id}}</td>
+                                        <td>{{$data->name}}</td>
+                                        <td>{{$data->email}}</td>
                                        
                                         <td>
-                                            <a onclick="admin_edit({{$data->a_id}});" class="btn waves-effect waves-light btn-outline-primary
+                                            <a onclick="admin_edit({{$data->id}});" class="btn waves-effect waves-light btn-outline-primary
                                     edit" data-toggle="modal" data-target="">Edit</a>
 
                                     <button type="button" class="btn waves-effect waves-light btn-outline-primary admindeletebtn
@@ -475,9 +475,9 @@ function admin_edit(id){
         success: function (data) {
             console.log(data);
             $('#edit_admin').modal('show');
-            $('#a_id').val(data.a_id);
-            $('#a_name').val(data.a_name);
-            $('#a_email').val(data.a_email);
+            $('#a_id').val(data.id);
+            $('#a_name').val(data.name);
+            $('#a_email').val(data.email);
         }
     });
 }

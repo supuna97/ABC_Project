@@ -23,12 +23,12 @@ class Item extends Model
 
     //get the product name using product id
     
-    // public function getProductCategory(){
-    //     $productcategory = ProductCategory::find($this->pc_id);
-    //     return $productcategory ? $productcategory->pc_name:"";
-    // }
+    public function getProductCategory(){
+        $productcategory = ProductCategory::find($this->pc_id);
+        return $productcategory ? $productcategory->pc_name:"";
+    }
 
-    // public function productCategory(){
-    //     return $this->belongsTo('App\Models\ProductCategory','pc_id','pc_id');
-    // }
+    public function productCategory(){
+        return $this->belongsTo('App\Models\ProductCategory','pc_id','pc_id');
+    }
 }

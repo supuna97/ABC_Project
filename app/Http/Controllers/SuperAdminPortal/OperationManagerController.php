@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
 
-use App\Models\OperationManager;
+use App\Models\User;
 
 class OperationManagerController extends Controller
 {
     // page view route function
     public function index()
     {
-        $oms = OperationManager::get();
+        $oms = User::where('r_id','=',3)->get();
         return view("superadmin/superadmin-operationmanager",compact('oms'));
     }
 
@@ -26,15 +26,16 @@ class OperationManagerController extends Controller
 
         $request->validate([
             'om_name' => 'required',
-            'om_email' => ['email','unique:App\Models\OperationManager,om_email'],
+            'om_email' => ['email','unique:App\Models\User,email'],
             'om_password' =>'required|min:8'
         ]);
 
-        $oms = new OperationManager();
+        $oms = new User();
 
-        $oms->om_name = $request->input('om_name');
-        $oms->om_email = $request->input('om_email');
-        $oms->om_password = Hash::make($request->input('om_password'));
+        $oms->name = $request->input('om_name');
+        $oms->email = $request->input('om_email');
+        $oms->password = Hash::make($request->input('om_password'));
+        $oms->r_id = "3";
         
 
         $oms->save();
@@ -49,7 +50,7 @@ class OperationManagerController extends Controller
      //delete data
      public function destroy($id)
      {
-        OperationManager::find($id)->delete();
+        User::find($id)->delete();
          return response()->json(['status'=>'Operation Manager Delete Successfully']);
  
      }
@@ -57,14 +58,14 @@ class OperationManagerController extends Controller
      //edit data
     public function edit_operationmanager(Request $request)
     {
-        $oms = OperationManager::find($request->id);
+        $oms = User::find($request->id);
         return $oms;
     }
 
     //update data
     public function update_operationmanager(Request $request)
     {
-        $oms = OperationManager::find($request->get('om_id')); 
+        $oms = User::find($request->get('om_id')); 
         
         $request->validate([
             'om_name' => 'required',
@@ -72,9 +73,10 @@ class OperationManagerController extends Controller
             'om_password' =>'required|min:8'
         ]);
         
-        $oms->om_name = $request->get('om_name');
-        $oms->om_email = $request->get('om_email');
-        $oms->om_password = Hash::make($request->input('om_password'));
+        $oms->name = $request->get('om_name');
+        $oms->email = $request->get('om_email');
+        $oms->password = Hash::make($request->input('om_password'));
+        $oms->r_id = "3";
         
         $oms->save();
 

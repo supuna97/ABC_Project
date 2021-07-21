@@ -110,13 +110,13 @@
                                    
                                     @foreach ($oms AS $data)
                                     <tr>
-                                    <input type="hidden" class="omdelete_val_id" value="{{$data->om_id}}">
-                                        <td>{{$data->om_id}}</td>
-                                        <td>{{$data->om_name}}</td>
-                                        <td>{{$data->om_email}}</td>
+                                    <input type="hidden" class="omdelete_val_id" value="{{$data->id}}">
+                                        <td>{{$data->id}}</td>
+                                        <td>{{$data->name}}</td>
+                                        <td>{{$data->email}}</td>
                                        
                                         <td>
-                                            <a onclick="om_edit({{$data->om_id}});" class="btn waves-effect waves-light btn-outline-primary
+                                            <a onclick="om_edit({{$data->id}});" class="btn waves-effect waves-light btn-outline-primary
                                     edit" data-toggle="modal" data-target="">Edit</a>
 
                                     <button type="button" class="btn waves-effect waves-light btn-outline-primary omdeletebtn
@@ -455,7 +455,7 @@ $.ajaxSetup({
  });
 });
 
-// Update Admin Script
+// Update Operaton Manager Script
 function om_edit(id){
     $.ajaxSetup({
         headers: {
@@ -471,9 +471,9 @@ function om_edit(id){
         success: function (data) {
             console.log(data);
             $('#edit_om').modal('show');
-            $('#om_id').val(data.om_id);
-            $('#om_name').val(data.om_name);
-            $('#om_email').val(data.om_email);
+            $('#om_id').val(data.id);
+            $('#om_name').val(data.name);
+            $('#om_email').val(data.email);
         }
     });
 }
