@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 /* route details */
 Route::get('/', function () {
-    return view('admin.index');
+    return view('operationmanager.index');
 });
 
 
@@ -92,3 +92,35 @@ Route::delete('admin/delete-item/{id}', 'App\Http\Controllers\AdminPortal\ItemCo
 Route::get('admin/edit-item', 'App\Http\Controllers\AdminPortal\ItemController@edit_item'); // Edit item
 
 Route::post('admin/update-item','App\Http\Controllers\AdminPortal\ItemController@update_item'); //Update item
+
+
+
+// Operation Manager Routes
+
+Route::get('operationmanager/index', 'App\Http\Controllers\OperationManagerPortal\OperationManagerController@index')->name('index');
+
+Route::get('operationmanager/om-productcategory', 'App\Http\Controllers\OperationManagerPortal\ProductCategoryController@index')->name('index');
+
+Route::get('operationmanager/om-item', 'App\Http\Controllers\OperationManagerPortal\ItemController@index')->name('index');
+
+
+// Operation Manager  -- product category section
+
+Route::post('operationmanager/save-productcategory', 'App\Http\Controllers\OperationManagerPortal\ProductCategoryController@store'); // Create productcategory
+
+Route::delete('operationmanager/delete-productcategory/{id}', 'App\Http\Controllers\OperationManagerPortal\ProductCategoryController@destroy'); //Delete productcategory
+
+Route::get('operationmanager/edit-productcategory', 'App\Http\Controllers\OperationManagerPortal\ProductCategoryController@edit_productcategory'); // Edit productcategory
+
+Route::post('operationmanager/update-productcategory','App\Http\Controllers\OperationManagerPortal\ProductCategoryController@update_productcategory'); //Update productcategory
+
+
+// Operation Manager  -- item section
+
+Route::post('operationmanager/save-item', 'App\Http\Controllers\OperationManagerPortal\ItemController@store'); // Create item
+
+Route::delete('operationmanager/delete-item/{id}', 'App\Http\Controllers\OperationManagerPortal\ItemController@destroy'); //Delete item
+
+Route::get('operationmanager/edit-item', 'App\Http\Controllers\OperationManagerPortal\ItemController@edit_item'); // Edit item
+
+Route::post('operationmanager/update-item','App\Http\Controllers\OperationManagerPortal\ItemController@update_item'); //Update item
