@@ -81,3 +81,14 @@ Route::delete('admin/delete-productcategory/{id}', 'App\Http\Controllers\AdminPo
 Route::get('admin/edit-productcategory', 'App\Http\Controllers\AdminPortal\ProductCategoryController@edit_productcategory'); // Edit productcategory
 
 Route::post('admin/update-productcategory','App\Http\Controllers\AdminPortal\ProductCategoryController@update_productcategory'); //Update productcategory
+
+
+// Admin  -- item section
+
+Route::post('admin/save-item', 'App\Http\Controllers\AdminPortal\ItemController@store'); // Create item
+
+Route::delete('admin/delete-item/{id}', 'App\Http\Controllers\AdminPortal\ItemController@destroy'); //Delete item
+
+Route::get('admin/edit-item', 'App\Http\Controllers\AdminPortal\ItemController@edit_item'); // Edit item
+
+Route::post('admin/update-item','App\Http\Controllers\AdminPortal\ItemController@update_item'); //Update item

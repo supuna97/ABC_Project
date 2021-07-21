@@ -14,7 +14,7 @@ class CreateProductcategoriesTable extends Migration
     public function up()
     {
         Schema::create('productcategories', function (Blueprint $table) {
-            $table->increments('pc_id');
+            $table->bigIncrements('pc_id');
             $table->string('pc_name');
             $table->timestamps();
             $table->softDeletes();

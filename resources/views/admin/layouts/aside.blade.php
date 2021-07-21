@@ -13,7 +13,7 @@
             </li>
             <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('admin/admin-productcategory')}}" aria-expanded="false"><i class="mdi mdi-comment-processing-outline"></i><span class="hide-menu">Product Category</span></a></li>
 
-            <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('admin/admin-items')}}" aria-expanded="false"><i class="mdi mdi-comment-processing-outline"></i><span class="hide-menu">Items</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('admin/admin-item')}}" aria-expanded="false"><i class="mdi mdi-comment-processing-outline"></i><span class="hide-menu">Items</span></a></li>
             
         </ul>
     </nav>
