@@ -16,7 +16,7 @@ use App\Models\User;
 
 /* route details */
 Route::get('/', function () {
-    return view('superadmin.index');
+    return view('welcome');
 });
 
 Auth::routes();
@@ -138,4 +138,4 @@ Route::get('salesmanager/sm-dailysales-item', 'App\Http\Controllers\SalesManager
 
 
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

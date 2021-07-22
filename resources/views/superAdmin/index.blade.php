@@ -41,7 +41,7 @@
             <div style="text-align: center">
                 <img src="">
                 <br><br>
-                <h4>Welcome to the ABC PVT Ltd Admin Portal System</h4>
+                <h4>Welcome to the ABC PVT Ltd Super Admin Portal System</h4>
 
                 <h3>Please choose an option from the left.</h3>
                 <br>
