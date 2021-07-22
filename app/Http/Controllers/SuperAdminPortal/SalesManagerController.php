@@ -15,7 +15,7 @@ class SalesManagerController extends Controller
     // page view route function
     public function index()
     {
-        $sms = User::where('r_id','=',4)->get();
+        $sms = User::where('role','=',4)->get();
         return view("superadmin/superadmin-salesmanager",compact('sms'));
     }
 
@@ -34,7 +34,7 @@ class SalesManagerController extends Controller
         $sms->name = $request->input('sm_name');
         $sms->email = $request->input('sm_email');
         $sms->password = Hash::make($request->input('sm_password'));
-        $sms->r_id = "4";
+        $sms->role = "4";
         
 
         $sms->save();
@@ -75,7 +75,7 @@ class SalesManagerController extends Controller
         $sms->name = $request->get('sm_name');
         $sms->email = $request->get('sm_email');
         $sms->password = Hash::make($request->input('sm_password'));
-        $sms->r_id = "4";
+        $sms->role = "4";
         
         $sms->save();
 

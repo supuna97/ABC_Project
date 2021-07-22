@@ -15,7 +15,7 @@ class AdminController extends Controller
     // page view route function
     public function index()
     {
-        $admins = User::where('r_id','=',2)->get();
+        $admins = User::where('role','=',2)->get();
         return view("superadmin/superadmin-admin", compact('admins'));
     }
 
@@ -34,7 +34,7 @@ class AdminController extends Controller
         $admins->name = $request->input('a_name');
         $admins->email = $request->input('a_email');
         $admins->password = Hash::make($request->input('a_password'));
-        $admins->r_id = "2";
+        $admins->role = "2";
         
 
         $admins->save();
@@ -75,7 +75,7 @@ class AdminController extends Controller
         $admins->name = $request->get('a_name');
         $admins->email = $request->get('a_email');
         $admins->password = Hash::make($request->input('a_password'));
-        $admins->r_id = "2";
+        $admins->role = "2";
         
         $admins->save();
 

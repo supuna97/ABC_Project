@@ -15,7 +15,7 @@ class OperationManagerController extends Controller
     // page view route function
     public function index()
     {
-        $oms = User::where('r_id','=',3)->get();
+        $oms = User::where('role','=',3)->get();
         return view("superadmin/superadmin-operationmanager",compact('oms'));
     }
 
@@ -35,7 +35,7 @@ class OperationManagerController extends Controller
         $oms->name = $request->input('om_name');
         $oms->email = $request->input('om_email');
         $oms->password = Hash::make($request->input('om_password'));
-        $oms->r_id = "3";
+        $oms->role = "3";
         
 
         $oms->save();
@@ -76,7 +76,7 @@ class OperationManagerController extends Controller
         $oms->name = $request->get('om_name');
         $oms->email = $request->get('om_email');
         $oms->password = Hash::make($request->input('om_password'));
-        $oms->r_id = "3";
+        $oms->role = "3";
         
         $oms->save();
 

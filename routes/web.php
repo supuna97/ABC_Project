@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,19 +16,20 @@ use Illuminate\Support\Facades\Route;
 
 /* route details */
 Route::get('/', function () {
-    return view('salesmanager.index');
+    return view('superadmin.index');
 });
 
+Auth::routes();
 
 // Super Admin Routes
 
-Route::get('superadmin/index', 'App\Http\Controllers\SuperAdminPortal\SuperAdminController@index')->name('index');
+Route::get('superadmin/index', 'App\Http\Controllers\SuperAdminPortal\SuperAdminController@index')->name('index')->middleware('role:'. User::SUPERADMIN);
 
-Route::get('superadmin/superadmin-admin', 'App\Http\Controllers\SuperAdminPortal\AdminController@index')->name('index');
+Route::get('superadmin/superadmin-admin', 'App\Http\Controllers\SuperAdminPortal\AdminController@index')->name('index')->middleware('role:'. User::SUPERADMIN);
 
-Route::get('superadmin/superadmin-salesmanager', 'App\Http\Controllers\SuperAdminPortal\SalesManagerController@index')->name('index');
+Route::get('superadmin/superadmin-salesmanager', 'App\Http\Controllers\SuperAdminPortal\SalesManagerController@index')->name('index')->middleware('role:'. User::SUPERADMIN);
 
-Route::get('superadmin/superadmin-operationmanager', 'App\Http\Controllers\SuperAdminPortal\OperationManagerController@index')->name('index');
+Route::get('superadmin/superadmin-operationmanager', 'App\Http\Controllers\SuperAdminPortal\OperationManagerController@index')->name('index')->middleware('role:'. User::SUPERADMIN);
 
 
 // super admin --- admin section
@@ -65,11 +67,11 @@ Route::post('superadmin/update-salesmanager','App\Http\Controllers\SuperAdminPor
 
 // Admin Routes
 
-Route::get('admin/index', 'App\Http\Controllers\AdminPortal\AdminController@index')->name('index');
+Route::get('admin/index', 'App\Http\Controllers\AdminPortal\AdminController@index')->name('index')->middleware('role:'. User::ADMIN);
 
-Route::get('admin/admin-productcategory', 'App\Http\Controllers\AdminPortal\ProductCategoryController@index')->name('index');
+Route::get('admin/admin-productcategory', 'App\Http\Controllers\AdminPortal\ProductCategoryController@index')->name('index')->middleware('role:'. User::ADMIN);
 
-Route::get('admin/admin-item', 'App\Http\Controllers\AdminPortal\ItemController@index')->name('index');
+Route::get('admin/admin-item', 'App\Http\Controllers\AdminPortal\ItemController@index')->name('index')->middleware('role:'. User::ADMIN);
 
 
 // Admin  -- product category section
@@ -97,11 +99,11 @@ Route::post('admin/update-item','App\Http\Controllers\AdminPortal\ItemController
 
 // Operation Manager Routes
 
-Route::get('operationmanager/index', 'App\Http\Controllers\OperationManagerPortal\OperationManagerController@index')->name('index');
+Route::get('operationmanager/index', 'App\Http\Controllers\OperationManagerPortal\OperationManagerController@index')->name('index')->middleware('role:'. User::OM);
 
-Route::get('operationmanager/om-productcategory', 'App\Http\Controllers\OperationManagerPortal\ProductCategoryController@index')->name('index');
+Route::get('operationmanager/om-productcategory', 'App\Http\Controllers\OperationManagerPortal\ProductCategoryController@index')->name('index')->middleware('role:'. User::OM);
 
-Route::get('operationmanager/om-item', 'App\Http\Controllers\OperationManagerPortal\ItemController@index')->name('index');
+Route::get('operationmanager/om-item', 'App\Http\Controllers\OperationManagerPortal\ItemController@index')->name('index')->middleware('role:'. User::OM);
 
 
 // Operation Manager  -- product category section
@@ -128,12 +130,12 @@ Route::post('operationmanager/update-item','App\Http\Controllers\OperationManage
 
 // Sales Manager Routes
 
-Route::get('salesmanager/index', 'App\Http\Controllers\SalesManagerPortal\SalesManagerController@index')->name('index');
+Route::get('salesmanager/index', 'App\Http\Controllers\SalesManagerPortal\SalesManagerController@index')->name('index')->middleware('role:'. User::SM);
 
-Route::get('salesmanager/sm-dailysales-item', 'App\Http\Controllers\SalesManagerPortal\DailySalesItemController@index')->name('index');
+Route::get('salesmanager/sm-dailysales-item', 'App\Http\Controllers\SalesManagerPortal\DailySalesItemController@index')->name('index')->middleware('role:'. User::SM);
 
 
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

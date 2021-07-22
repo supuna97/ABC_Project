@@ -13,6 +13,12 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
     use SoftDeletes;
 
+    const SUPERADMIN = 1;
+    const ADMIN = 2;
+    const OM = 3;
+    const SM = 4;
+    const CLIENTS = 5;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,7 +28,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'r_id'
+        'role'
     ];
 
     /**
@@ -43,4 +49,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function hasRole($role) {
+        return $this->role == $role;
+    }
 }
