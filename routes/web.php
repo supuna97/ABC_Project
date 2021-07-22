@@ -133,3 +133,7 @@ Route::get('salesmanager/index', 'App\Http\Controllers\SalesManagerPortal\SalesM
 Route::get('salesmanager/sm-dailysales-item', 'App\Http\Controllers\SalesManagerPortal\DailySalesItemController@index')->name('index');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
