@@ -105,6 +105,7 @@
                                         <th>Item Name</th>
                                         <th>Item Qty</th>
                                         <th>Product</th>
+                                        <th>Item Price(RS)</th>
                                         <th>Item Image</th>
                                         
                                         <th></th>
@@ -118,7 +119,8 @@
                                         <td>{{$data->i_code}}</td>
                                         <td>{{$data->i_name}}</td>
                                         <td>{{$data->i_qty}}</td>
-                                        <td>{{$data->getProductCategory}}</td>
+                                        <td>{{$data->getProductCategory()}}</td>
+                                        <td>{{$data->price}}</td>
                                         <td><img width="70" height="50" src="{{asset('uploads/items/'.$data->i_img)}}" alt="item imgs"></td>
                                          
                                         <td>
@@ -140,6 +142,7 @@
                                         <th>Item Name</th>
                                         <th>Item Qty</th>
                                         <th>Product</th>
+                                        <th>Item Price(RS)</th>
                                         <th>Item Image</th>
                                        
                                         <th></th>
@@ -194,7 +197,7 @@
                                     <div class="col-lg-12">
                                         <div class="card">
                                             <div class="card-header bg-info">
-                                                <h4 class="mb-0 text-white">Product Category Update Section</h4>
+                                                <h4 class="mb-0 text-white">Item Update Section</h4>
                                             </div>
                                             <form action="{{url('operationmanager/update-item')}}" class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
                                             {{ csrf_field() }}
@@ -260,6 +263,18 @@
                                                                         <option value="{{$data->pc_id}}">{{$data->pc_name}}</option>
                                                                        @endforeach
                                                                     </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-12">
+                                                                <div class="form-group has-danger">
+                                                                    <label class="control-label">Item Price(RS)</label>
+                                                                    <input type="number" id="price" name="price"
+                                                                           class="form-control form-control-danger"
+                                                                           placeholder="" required>
+                                                                           <div class="invalid-feedback">
+                                                                        Please enter a item price
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
@@ -389,6 +404,18 @@
                                                                         <option value="{{$data->pc_id}}">{{$data->pc_name}}</option>
                                                                        @endforeach
                                                                     </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-12">
+                                                                <div class="form-group has-danger">
+                                                                    <label class="control-label">Item Price(RS)</label>
+                                                                    <input type="number" id="price" name="price"
+                                                                           class="form-control form-control-danger"
+                                                                           placeholder="" required>
+                                                                           <div class="invalid-feedback">
+                                                                        Please enter a item price
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
@@ -593,6 +620,7 @@ function item_edit(id){
             $('#i_name').val(data.i_name);
             $('#i_qty').val(data.i_qty);
             $('#pc_id').val(data.pc_id);
+            $('#price').val(data.price);
             $('#fakeUploadLogo').val(data.i_img);
             $('.img-preview').attr('src','../uploads/items/'+data.i_img);
            

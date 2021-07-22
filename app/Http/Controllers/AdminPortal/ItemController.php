@@ -30,7 +30,8 @@ class ItemController extends Controller
             'i_name' => 'required',
             'i_qty' => 'required',
             'i_img' => 'required',
-            'pc_id' => 'required'        
+            'pc_id' => 'required',
+            'price' =>'required'        
         ]);
 
         $items = new Item();
@@ -39,6 +40,7 @@ class ItemController extends Controller
         $items->i_name = $request->input('i_name');
         $items->i_qty = $request->input('i_qty');
         $items->pc_id = $request->input('pc_id');
+        $items->price = $request->input('price');
 
 
         if ($request->hasfile('i_img')) {
@@ -91,7 +93,8 @@ class ItemController extends Controller
             'i_name' => 'required',
             'i_qty' => 'required',
             'i_img' => 'required',
-            'pc_id' => 'required'        
+            'pc_id' => 'required',
+            'price' => 'required'        
            
         ]);
 
@@ -99,6 +102,7 @@ class ItemController extends Controller
         $items->i_name = $request->get('i_name');
         $items->i_qty = $request->get('i_qty');
         $items->pc_id = $request->get('pc_id');
+        $items->price = $request->get('price');
 
 
         if ($request->hasfile('i_img')) {

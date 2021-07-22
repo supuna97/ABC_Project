@@ -15,9 +15,9 @@ use App\Models\User;
 */
 
 /* route details */
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\Client\DashboardController@index');
+
+Route::get('welcome', 'App\Http\Controllers\Client\DashboardController@index')->name('welcome')->middleware('role:'. User::CLIENTS);
 
 Auth::routes();
 
