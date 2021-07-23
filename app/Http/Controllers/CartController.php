@@ -52,4 +52,10 @@ class CartController extends Controller
 
         return back();
     }
+
+    public function checkout(){
+
+        return view('cart.checkout');
+    }
+
 }

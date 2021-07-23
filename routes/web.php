@@ -150,3 +150,5 @@ Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name
 Route::get('/cart/destroy/{itemId}', [App\Http\Controllers\CartController::class, 'destroy'])->name('cart.destroy')->middleware('role:'. User::CLIENTS);
 
 Route::get('/cart/update/{rowId}', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update')->middleware('role:'. User::CLIENTS);
+
+Route::get('/cart/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('cart.checkout')->middleware('role:'. User::CLIENTS);
