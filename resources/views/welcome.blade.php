@@ -453,7 +453,7 @@
               <h5 class="card-title">{{$data->i_name}}</h5>
               <p class="card-text">Price RS:{{$data->price}}</p>
               <p class="card-text">Stock Available: {{$data->i_qty}}</p>
-              <a href="#" class="btn btn-primary">Add to Cart</a>
+              <a href="{{route('cart.add',$data->i_id)}}" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>
         </div>
