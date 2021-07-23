@@ -136,6 +136,4 @@ Route::get('salesmanager/sm-dailysales-item', 'App\Http\Controllers\SalesManager
 
 
 
-
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
