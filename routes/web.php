@@ -17,9 +17,11 @@ use App\Models\User;
 /* route details */
 Route::get('/', 'App\Http\Controllers\Client\DashboardController@index');
 
+Auth::routes();
+
 Route::get('welcome', 'App\Http\Controllers\Client\DashboardController@index')->name('welcome')->middleware('role:'. User::CLIENTS);
 
-Auth::routes();
+
 
 // Super Admin Routes
 
@@ -141,4 +143,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Cart Section
 
-Route::get('/add-to-cart/{item}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
+Route::get('/add-to-cart/{item}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add')->middleware('role:'. User::CLIENTS);
+
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index')->middleware('role:'. User::CLIENTS);
+
+Route::get('/cart/destroy/{itemId}', [App\Http\Controllers\CartController::class, 'destroy'])->name('cart.destroy')->middleware('role:'. User::CLIENTS);
+
+Route::get('/cart/update/{rowId}', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update')->middleware('role:'. User::CLIENTS);

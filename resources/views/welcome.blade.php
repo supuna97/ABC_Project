@@ -405,40 +405,11 @@
   </style>
 </head>
 
-<body class="antialiased container">
+<body class="antialiased">
+@include('layouts.app')
   <div style="background-color: white;" class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
-  @include('translate')
-
-    @if (Route::has('login'))
-    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-      @auth
-      <!-- <a style="margin-left:-140px" href="{{ url('/welcome') }}" class="text-sm text-gray-700 underline">Home</a> -->
-
-
-      <a class="" href="#"  aria-haspopup="true" aria-expanded="false">
-        <!--    <img src="assets/images/users/2.jpg" alt="user" class="rounded-circle" width="40">-->
-        <span class="text-sm text-gray-700">user name: {{ Auth::user()->name }}<i class="mdi mdi-chevron-down"></i></span>
-      </a>
-     
-        <div class="p-l-30 p-10">
-          <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" aria-expanded="false" class="text-sm text-gray-700 underline">Logout</a>
-
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-          </form>
-        </div>
-      
-      @else
-      <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-
-      @if (Route::has('register'))
-      <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-      @endif
-      @endauth
-    </div>
-    @endif
+  
 
     <div class="container">
       <br><br><br>
@@ -471,7 +442,7 @@
               <h5 class="card-title">{{$data->i_name}}</h5>
               <p class="card-text">Price RS:{{$data->price}}</p>
               <p class="card-text">Stock Available: {{$data->i_qty}}</p>
-              <a href="#" class="btn btn-primary">Add to Cart</a>
+              <a href="{{route('cart.add',$data->i_id)}}" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>
         </div>
@@ -490,7 +461,7 @@
               <h5 class="card-title">{{$data->i_name}}</h5>
               <p class="card-text">Price RS:{{$data->price}}</p>
               <p class="card-text">Stock Available: {{$data->i_qty}}</p>
-              <a href="#" class="btn btn-primary">Add to Cart</a>
+              <a href="{{route('cart.add',$data->i_id)}}" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>
         </div>
@@ -509,7 +480,7 @@
               <h5 class="card-title">{{$data->i_name}}</h5>
               <p class="card-text">Price RS:{{$data->price}}</p>
               <p class="card-text">Stock Available: {{$data->i_qty}}</p>
-              <a href="#" class="btn btn-primary">Add to Cart</a>
+              <a href="{{route('cart.add',$data->i_id)}}" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>
         </div>
