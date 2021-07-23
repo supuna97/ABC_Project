@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 
+use App\Http\Controllers\OrderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -152,3 +154,8 @@ Route::get('/cart/destroy/{itemId}', [App\Http\Controllers\CartController::class
 Route::get('/cart/update/{rowId}', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update')->middleware('role:'. User::CLIENTS);
 
 Route::get('/cart/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('cart.checkout')->middleware('role:'. User::CLIENTS);
+
+
+// Order Setion
+
+Route::resource('orders',OrderController::class)->middleware('role:'. User::CLIENTS);

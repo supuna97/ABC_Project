@@ -1,4 +1,4 @@
-<div style="margin-top: -2050px;" id="google_translate_element"></div>
+<div id="google_translate_element"></div>
 
   <script type="text/javascript">
 function googleTranslateElementInit() {

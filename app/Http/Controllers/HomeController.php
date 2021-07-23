@@ -40,7 +40,7 @@ class HomeController extends Controller
                 return view('salesmanager/index');
                 break; 
             case User::CLIENTS:
-                return view('welcome');
+                return redirect('welcome');
                 break;                          
         }
         // return redirect("login");

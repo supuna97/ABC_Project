@@ -335,7 +335,7 @@
     </div>
 
 
-    <!--    Save Item Modal-->
+    <!--Save Item Modal-->
     
     <div class="modal" id="long-modal-new" tabindex="-1" role="dialog" aria-labelledby="longmodal" aria-hidden="true"
          style="display: none;">
@@ -421,11 +421,11 @@
                                                             </div>
 
                                                              <!-- image upload -->
-                                                             <div class="col-md-12">
+                                                            <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <div class="main-img-preview">
-                                                                <img width="200" height="200" class="thumbnail img-preview-save" src="" title="Preview Logo">
-                                                            </div>
+                                                            <!-- <div class="main-img-preview">
+                                                                <img width="200" height="200" class=" img-preview-save thumbnail"  title="Preview Logo">
+                                                            </div> -->
                                                             <div class="input-group">
                                                                 <input id="fakeUploadLogo" name="i_img" class="form-control fake-shadow"
                                                                     placeholder="Choose File"
@@ -435,9 +435,6 @@
                                                                         <span><i class="glyphicon glyphicon-upload"></i> Upload Image</span>
                                                                         <input id="i_img" name="i_img" type="file" class="attachment_upload"
                                                                         accept="image/*" required>
-                                                                        <div class="invalid-feedback">
-                                                                        Please upload the item image.   
-                                                                    </div>
                                                                     </div>
                                                                 </div>
                                                             </div>

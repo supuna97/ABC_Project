@@ -189,7 +189,7 @@
                                             <div class="card-header bg-info">
                                                 <h4 class="mb-0 text-white">Operation Manager Update Section</h4>
                                             </div>
-                                            <form action="{{url('superadmin/update-operationmanager')}}" class="needs-validation" novalidate method="POST">
+                                            <form action="{{url('superadmin/update-operationmanager')}}" class="needs-validation" novalidate method="POST" enctype="multipart/form-data" oninput='om_password1.setCustomValidity(om_password1.value != om_password.value ? "Passwords do not match." : "")' >
                                             {{ csrf_field() }}
                                                 <hr>
                                                 <div class="form-body">
@@ -299,7 +299,7 @@
                                 <div class="card-header bg-info">
                                     <h4 class="mb-0 text-white">Add Operation Managers</h4>
                                 </div>
-                                <form action="{{url('superadmin/save-operationmanager')}}" class="needs-validation" novalidate method="POST">
+                                <form action="{{url('superadmin/save-operationmanager')}}" class="needs-validation" novalidate method="POST" enctype="multipart/form-data" oninput='om_password1.setCustomValidity(om_password1.value != om_password.value ? "Passwords do not match." : "")' >
 
                                 {{ csrf_field() }} 
                                     <hr>

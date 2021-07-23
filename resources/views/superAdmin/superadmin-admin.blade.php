@@ -185,7 +185,7 @@
                                             <div class="card-header bg-info">
                                                 <h4 class="mb-0 text-white">Admin Update Section</h4>
                                             </div>
-                                            <form action="{{url('superadmin/update-admin')}}" class="needs-validation" novalidate method="POST">
+                                            <form action="{{url('superadmin/update-admin')}}" class="needs-validation" enctype="multipart/form-data" novalidate method="POST" oninput='a_password1.setCustomValidity(a_password1.value != a_password.value ? "Passwords do not match." : "")' >
                                             {{ csrf_field() }}
                                                 <hr>
                                                 <div class="form-body">
@@ -297,7 +297,7 @@
                                 <div class="card-header bg-info">
                                     <h4 class="mb-0 text-white">Add New Admin</h4>
                                 </div>
-                                <form action="{{url('superadmin/save-admin')}}" class="needs-validation" novalidate method="POST">  
+                                <form action="{{url('superadmin/save-admin')}}" class="needs-validation" enctype="multipart/form-data" novalidate method="POST" oninput='a_password1.setCustomValidity(a_password1.value != a_password.value ? "Passwords do not match." : "")'  >  
                                 {{ csrf_field() }} 
                                     <hr>
                                     <div class="form-body">
@@ -348,18 +348,16 @@
                                                                     <input type="password" id="a_password1" name="a_password1"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                           <div class="invalid-feedback">
-                                                                                Please enter a confirm password
-                                                                                </div>
+                                                                           <div class="invalid-feedback">Password not a match.</div>
                                                                 </div>
                                                             </div>
-                                                            
+                                                        
                                                       </div>
 
                                                 <div class="form-actions">
                                                     <div class="card-body">
                                                         <button type="submit" id="savebtn"  class="btn btn-success"
-                                                                ><i class="fa fa-check"></i> Upload
+                                                        ><i class="fa fa-check"></i> Register
                                                         </button>
 
                                                     </div>
@@ -401,6 +399,7 @@
     <!--This page plugins -->
 
  
+   
  <script>
        
 //delete admin using ajax
@@ -481,6 +480,8 @@ function admin_edit(id){
         }
     });
 }
+
+
 
     </script>
 

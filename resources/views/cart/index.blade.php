@@ -10,23 +10,26 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Item Code</th>
+                
                 <th>Item Name</th>
-                <th>Qty</th>
-                <th>Price</th>
+                <th>1 Qty Price</th>
+                <th>Order Qty</th>
+                <th>Order Price</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach($cartitems as $item)
             <tr>
-                <td scope="row">{{$item->code}}</td>
+               
                 <td>{{$item->name}}</td>
+                <td>{{$item->price}}</td>
+                
                 <td>
 
-                    <form action="{{route('cart.update', $item->id)}}">
+                    <form action="{{route('cart.update', $item->id)}}" >
 
-                        <input name="quantity" type="number" value="{{$item->quantity}}">
+                        <input name="quantity" type="number" value="{{$item->quantity}}" required>
                         <input type="submit" value="save">
 
                     </form>
@@ -45,8 +48,11 @@
     <h3>
         Total Price : RS {{\Cart::session(auth()->id())->getTotal()}}
     </h3>
-
+    @if(count($cartitems)>0)
     <a class="btn btn-primary" href="{{route('cart.checkout')}}" role="button">Proceed to checkout</a>
+    @else
+    <button class="btn btn-primary" disabled="disabled" href="#" role="button">Proceed to checkout</button>
+    @endif
 
 </div>
 

@@ -422,9 +422,9 @@
                                                              <!-- image upload -->
                                                              <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <div class="main-img-preview">
+                                                            <!-- <div class="main-img-preview">
                                                                 <img width="200" height="200" class="thumbnail img-preview-save" src="" title="Preview Logo">
-                                                            </div>
+                                                            </div> -->
                                                             <div class="input-group">
                                                                 <input id="fakeUploadLogo" name="i_img" class="form-control fake-shadow"
                                                                     placeholder="Choose File"
