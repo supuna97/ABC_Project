@@ -138,6 +138,8 @@ Route::get('salesmanager/index', 'App\Http\Controllers\SalesManagerPortal\SalesM
 
 Route::get('salesmanager/sm-dailysales-item', 'App\Http\Controllers\SalesManagerPortal\DailySalesItemController@index')->name('index')->middleware('role:'. User::SM);
 
+Route::post('salesmanager/sm-dailysales-item', 'App\Http\Controllers\SalesManagerPortal\DailySalesItemController@search')->name('search')->middleware('role:'. User::SM);
+
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

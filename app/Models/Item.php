@@ -31,4 +31,8 @@ class Item extends Model
     public function productCategory(){
         return $this->belongsTo('App\Models\ProductCategory','pc_id','pc_id');
     }
+
+    public function orders(){
+        return $this->belongsToMany(Order::class,'order_items','i_id','o_id')->withPivot('price','quantity');
+    }
 }
