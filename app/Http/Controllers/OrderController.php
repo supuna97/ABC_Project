@@ -82,8 +82,6 @@ class OrderController extends Controller
         $order->save();
 
         $cartItems = \Cart::session(auth()->id())->getContent();
-
-
         
 
         foreach($cartItems as $item){
@@ -95,7 +93,7 @@ class OrderController extends Controller
 
         \Cart::session(auth()->id())->clear();
 
-        return "Order Completed, thank you for order";
+        return redirect('/welcome')->with('success', 'ORDER COMPLETED, THANK YOU FOR ORDER');
     }
 
     /**

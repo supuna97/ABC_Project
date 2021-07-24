@@ -412,6 +412,7 @@
   
 
     <div class="container">
+    @include('flash-message')
       <br><br><br>
       <div class="row">
         <h3>Kitchen Accessories</h3>

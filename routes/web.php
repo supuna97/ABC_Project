@@ -159,3 +159,7 @@ Route::get('/cart/checkout', [App\Http\Controllers\CartController::class, 'check
 // Order Setion
 
 Route::resource('orders',OrderController::class)->middleware('role:'. User::CLIENTS);
+
+// Client Section
+
+Route::get('client/customerpurchaseditem', 'App\Http\Controllers\Client\CustomerPurchasedItemController@index')->name('client.customerpurchaseditem')->middleware('role:'. User::CLIENTS);
