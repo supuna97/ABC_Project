@@ -25,7 +25,7 @@ class SalesManagerController extends Controller
 
         $request->validate([
             'sm_name' => 'required',
-            'sm_email' => ['email','unique:App\Models\SalesManager,sm_email'],
+            'sm_email' => ['email','unique:App\Models\User,email'],
             'sm_password' =>'required|min:8'
         ]);
 
@@ -68,7 +68,7 @@ class SalesManagerController extends Controller
         
         $request->validate([
             'sm_name' => 'required',
-            'sm_email' => ['email','unique:App\Models\SalesManager,sm_email'],
+            'sm_email' => ['email','unique:App\Models\User,email'],
             'sm_password' =>'required|min:8'
         ]);
 

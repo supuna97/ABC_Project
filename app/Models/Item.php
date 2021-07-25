@@ -32,6 +32,7 @@ class Item extends Model
         return $this->belongsTo('App\Models\ProductCategory','pc_id','pc_id');
     }
 
+    //order and orderitems relation
     public function orders(){
         return $this->belongsToMany(Order::class,'order_items','i_id','o_id')->withPivot('price','quantity');
     }

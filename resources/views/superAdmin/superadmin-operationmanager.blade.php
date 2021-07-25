@@ -237,7 +237,7 @@
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
                                                                            <div class="invalid-feedback">
-                                                                        Please enter a new password
+                                                                        Please enter a new password (minimum 8 characters)
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -249,7 +249,7 @@
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
                                                                            <div class="invalid-feedback">
-                                                                        Please enter a confirm password
+                                                                            Password did not a match.
                                                                 </div>
                                                             </div>
 
@@ -337,7 +337,7 @@
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
                                                                            <div class="invalid-feedback">
-                                                                                Please enter a password
+                                                                                Please enter a password (minimum 8 characters)
                                                                                 </div>
                                                                 </div>
                                                             </div>
@@ -349,7 +349,7 @@
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
                                                                            <div class="invalid-feedback">
-                                                                                Please enter a confirm password
+                                                                            Password did not a match.
                                                                                 </div>
                                                                 </div>
                                                             </div>

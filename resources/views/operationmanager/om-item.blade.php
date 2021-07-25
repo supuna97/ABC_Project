@@ -244,7 +244,7 @@
                                                                 <div class="form-group has-danger">
                                                                     <label class="control-label">Item Qty</label>
                                                                     <input type="number" id="i_qty" name="i_qty"
-                                                                           class="form-control form-control-danger"
+                                                                    min="1"    class="form-control form-control-danger"
                                                                            placeholder="" required>
                                                                            <div class="invalid-feedback">
                                                                         Please enter a item qty
@@ -385,7 +385,7 @@
                                                                 <div class="form-group has-danger">
                                                                     <label class="control-label">Item Qty</label>
                                                                     <input type="number" id="i_qty" name="i_qty"
-                                                                           class="form-control form-control-danger"
+                                                                    min="1"   class="form-control form-control-danger"
                                                                            placeholder="" required>
                                                                            <div class="invalid-feedback">
                                                                         Please enter a item qty

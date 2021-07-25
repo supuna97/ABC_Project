@@ -243,7 +243,7 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group has-danger">
                                                                     <label class="control-label">Item Qty</label>
-                                                                    <input type="number" id="i_qty" name="i_qty"
+                                                                    <input type="number" id="i_qty" name="i_qty" min="1"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
                                                                            <div class="invalid-feedback">
@@ -385,7 +385,7 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group has-danger">
                                                                     <label class="control-label">Item Qty</label>
-                                                                    <input type="number" id="i_qty" name="i_qty"
+                                                                    <input type="number" id="i_qty" name="i_qty" min="1"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
                                                                            <div class="invalid-feedback">

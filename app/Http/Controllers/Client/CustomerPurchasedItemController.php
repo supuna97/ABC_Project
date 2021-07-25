@@ -39,9 +39,6 @@ class CustomerPurchasedItemController extends Controller
             ];
         });
 
-
-        //  $orderitems = Order::with('items')->where('u_id',$userId)->get();
-
         return view('client.customerpurchaseditem', ['items' => $data]);
     }
 }

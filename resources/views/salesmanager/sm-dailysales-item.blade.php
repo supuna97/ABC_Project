@@ -105,7 +105,7 @@
                             <br><br><br>
 
                             <div class="table-responsive">
-                            
+                                @if(count($products)>0)
                                 <table id="lang_opt" class="table table-striped table-bordered display"
                                       >
                                     <thead>
@@ -153,7 +153,9 @@
                                     </tr>
                                     </tfoot>
                                 </table>
-                               
+                                @else
+                        <div style="text-align:center"><span style="text-align:right;color:red">No Records Found</span></div>
+                                @endif    
 
                             </div>
 
@@ -204,9 +206,6 @@
 
   
     <!--This page plugins -->
-
- 
-
 
 </body>
 

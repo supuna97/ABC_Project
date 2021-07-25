@@ -59,6 +59,7 @@
             </tr>
         </tfoot>
     </table>
+    
     @else
     <div style="text-align:center"><span style="text-align:right;color:red">No Records Found</span></div>
     @endif

@@ -103,12 +103,7 @@ class OrderController extends Controller
             
         }
 
-
-        // dd('Order Created' , $order);
-
-        \Cart::session(auth()->id())->clear();
-
-        
+        \Cart::session(auth()->id())->clear();        
 
         return redirect('/welcome')->with('success', 'ORDER COMPLETED, THANK YOU FOR ORDER');
     }

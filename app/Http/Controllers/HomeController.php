@@ -43,6 +43,6 @@ class HomeController extends Controller
                 return redirect('welcome');
                 break;                          
         }
-        // return redirect("login");
+        return redirect("login");
     }
 }

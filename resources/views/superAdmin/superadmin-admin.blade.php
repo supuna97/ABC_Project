@@ -233,7 +233,7 @@
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
                                                                            <div class="invalid-feedback">
-                                                                        Please enter a new password
+                                                                        Please enter a new password (minimum 8 characters)
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -336,7 +336,7 @@
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
                                                                            <div class="invalid-feedback">
-                                                                                Please enter a password
+                                                                                Please enter a password (minimum 8 characters)
                                                                                 </div>
                                                                                                                                             
                                                                 </div>
@@ -348,7 +348,7 @@
                                                                     <input type="password" id="a_password1" name="a_password1"
                                                                            class="form-control form-control-danger"
                                                                            placeholder="" required>
-                                                                           <div class="invalid-feedback">Password not a match.</div>
+                                                                           <div class="invalid-feedback">Password did not a match.</div>
                                                                 </div>
                                                             </div>
                                                         
@@ -480,8 +480,6 @@ function admin_edit(id){
         }
     });
 }
-
-
 
     </script>
 

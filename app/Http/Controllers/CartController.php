@@ -10,6 +10,8 @@ use App\Models\Item;
 
 class CartController extends Controller
 {
+
+    //add to cart
     public function add(Item $item)
     {
         
@@ -28,6 +30,7 @@ class CartController extends Controller
     }
 
 
+    //show added cart data 
     public function index()
     {
         $cartitems = \Cart::session(auth()->id())->getContent();
@@ -35,6 +38,7 @@ class CartController extends Controller
     }
 
 
+    //remove item from cart
     public function destroy($itemId)
     {
         \Cart::session(auth()->id())->remove($itemId);

@@ -5,8 +5,7 @@
 <div class="container">
     <h2>My Cart</h2>
 
-
-
+    <br><br>
     <table class="table">
         <thead>
             <tr>
@@ -29,7 +28,7 @@
 
                     <form action="{{route('cart.update', $item->id)}}" >
 
-                        <input name="quantity" type="number" value="{{$item->quantity}}" required>
+                        <input name="quantity" type="number" min="1"  value="{{$item->quantity}}" required>
                         <input type="submit" value="save">
 
                     </form>

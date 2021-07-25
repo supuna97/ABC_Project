@@ -69,7 +69,7 @@ class OperationManagerController extends Controller
         
         $request->validate([
             'om_name' => 'required',
-            'om_email' => ['email','unique:App\Models\OperationManager,om_email'],
+            'om_email' => ['email','unique:App\Models\User,email'],
             'om_password' =>'required|min:8'
         ]);
         
