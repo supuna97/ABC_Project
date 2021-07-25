@@ -129,7 +129,7 @@
                                     <tr>
                                         <td>{{ $product->i_code }}</td>
                                         <td>{{ $product->i_name }}</td>
-                                        <td>{{ $product->i_qty }}</td>
+                                        <td>{{ $product->stock_qty }}</td>
                                         <td>{{ $byPrice->first()->pivot->price }}</td>
                                         <td>{{ $byPrice->sum('pivot.quantity') }}</td>
                                         <td>{{ $byPrice->first()->pivot->price * $byPrice->sum('pivot.quantity') }}</td>
