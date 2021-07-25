@@ -41,6 +41,7 @@ class ItemController extends Controller
         $items->i_qty = $request->input('i_qty');
         $items->pc_id = $request->input('pc_id');
         $items->price = $request->input('price');
+        $items->stock_qty = $request->input('i_qty');
 
 
         if ($request->hasfile('i_img')) {
@@ -103,6 +104,7 @@ class ItemController extends Controller
         $items->i_qty = $request->get('i_qty');
         $items->pc_id = $request->get('pc_id');
         $items->price = $request->get('price');
+        $items->stock_qty = $request->get('i_qty');
 
 
         if ($request->hasfile('i_img')) {

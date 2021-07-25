@@ -616,7 +616,7 @@ function item_edit(id){
             $('#i_id').val(data.i_id);
             $('#i_code').val(data.i_code);
             $('#i_name').val(data.i_name);
-            $('#i_qty').val(data.i_qty);
+            $('#i_qty').val(data.stock_qty);
             $('#pc_id').val(data.pc_id);
             $('#price').val(data.price);
             $('#fakeUploadLogo').val(data.i_img);

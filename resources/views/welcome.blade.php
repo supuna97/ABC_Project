@@ -424,7 +424,7 @@
               <p class="card-text">{{$data->i_code}}</p>
               <h5 class="card-title">{{$data->i_name}}</h5>
               <p class="card-text">Price RS:{{$data->price}}</p>
-              <p class="card-text">Stock Available: {{$data->i_qty}}</p>
+              <p class="card-text">Stock Available: {{$data->stock_qty}}</p>
               <a href="{{route('cart.add',$data->i_id)}}" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>
@@ -442,7 +442,7 @@
               <p class="card-text">{{$data->i_code}}</p>
               <h5 class="card-title">{{$data->i_name}}</h5>
               <p class="card-text">Price RS:{{$data->price}}</p>
-              <p class="card-text">Stock Available: {{$data->i_qty}}</p>
+              <p class="card-text">Stock Available: {{$data->stock_qty}}</p>
               <a href="{{route('cart.add',$data->i_id)}}" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>
@@ -461,7 +461,7 @@
               <p class="card-text">{{$data->i_code}}</p>
               <h5 class="card-title">{{$data->i_name}}</h5>
               <p class="card-text">Price RS:{{$data->price}}</p>
-              <p class="card-text">Stock Available: {{$data->i_qty}}</p>
+              <p class="card-text">Stock Available: {{$data->stock_qty}}</p>
               <a href="{{route('cart.add',$data->i_id)}}" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>
@@ -480,7 +480,7 @@
               <p class="card-text">{{$data->i_code}}</p>
               <h5 class="card-title">{{$data->i_name}}</h5>
               <p class="card-text">Price RS:{{$data->price}}</p>
-              <p class="card-text">Stock Available: {{$data->i_qty}}</p>
+              <p class="card-text">Stock Available: {{$data->stock_qty}}</p>
               <a href="{{route('cart.add',$data->i_id)}}" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>

@@ -12,8 +12,7 @@ class CartController extends Controller
 {
     public function add(Item $item)
     {
-        // dd($item);
-
+        
         // add the product to cart
         \Cart::session(auth()->id())->add(array(
             'id' => uniqid($item->i_id),
@@ -25,8 +24,9 @@ class CartController extends Controller
             'associatedModel' => $item
         ));
 
-        return redirect()->route('welcome');
+        return redirect()->route('cart.index');
     }
+
 
     public function index()
     {
@@ -34,12 +34,14 @@ class CartController extends Controller
         return view('cart.index', compact('cartitems'));
     }
 
+
     public function destroy($itemId)
     {
         \Cart::session(auth()->id())->remove($itemId);
         return back();
     }
 
+    
     public function update($rowId){
 
         \Cart::session(auth()->id())->update($rowId,[

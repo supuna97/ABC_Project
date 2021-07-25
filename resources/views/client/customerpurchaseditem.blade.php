@@ -23,8 +23,9 @@
                 <th>Order Code</th>
                 <th>Item Code</th>
                 <th>Item Name</th>
-                <th>Quantity</th>
                 <th>Price</th>
+                <th>Quantity</th>
+                <th>Item Total Price</th>
                 <th>Date</th>
 
             </tr>
@@ -36,8 +37,9 @@
                 <td>{{$data['o_number']}}</td>               
                 <td>{{$data['i_code']}}</td>
                 <td>{{$data['i_name']}}</td>
-                <td>{{$data['quantity']}}</td>
                 <td>{{$data['price']}}</td>
+                <td>{{$data['quantity']}}</td>
+                <td>{{$data['price']*$data['quantity']}}</td>
                 <td>{{$data['created_at']}}</td>
                
             </tr>
@@ -49,8 +51,9 @@
                 <th>Order Code</th>
                 <th>Item Code</th>
                 <th>Item Name</th>
-                <th>Quantity</th>
                 <th>Price</th>
+                <th>Quantity</th>
+                <th>Item Total Price</th>
                 <th>Date</th>
 
             </tr>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
+use App\Models\Item;
+
 class OrderController extends Controller
 {
     /**
@@ -33,6 +35,8 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     //add order 
     public function store(Request $request)
     {
         $request->validate([
@@ -79,19 +83,32 @@ class OrderController extends Controller
 
         $order->u_id = auth()->id();
 
+       
+
         $order->save();
 
         $cartItems = \Cart::session(auth()->id())->getContent();
+
         
-
         foreach($cartItems as $item){
-
+            
             $order->items()->attach($item->associatedModel->i_id,['price'=>$item->price,'quantity'=>$item->quantity]);
+         
+            //item qty update after order.
+            $items = Item::find($item->associatedModel->i_id);
+
+            $items->stock_qty = $items->stock_qty - $item->quantity;
+
+            $items->save();
+            
         }
+
 
         // dd('Order Created' , $order);
 
         \Cart::session(auth()->id())->clear();
+
+        
 
         return redirect('/welcome')->with('success', 'ORDER COMPLETED, THANK YOU FOR ORDER');
     }

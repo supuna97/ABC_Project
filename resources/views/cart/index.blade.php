@@ -12,7 +12,7 @@
             <tr>
                 
                 <th>Item Name</th>
-                <th>1 Qty Price</th>
+                <th>1 Item Price</th>
                 <th>Order Qty</th>
                 <th>Order Price</th>
                 <th>Action</th>
